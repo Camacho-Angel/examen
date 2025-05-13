@@ -3,7 +3,12 @@ def operacion():
     num1=float(entrada.get())
     num2=float(entrada2.get())
     area=(num1*num2)/2
-    etiqueta_resultado.config(text=f"el area es: {area}") 
+    etiqueta_resultado.config(text=f"el area es: {area}")
+    if area>100:
+     etiqueta_comparacion.config(text=f"El area es grande")
+    else:
+     etiqueta_comparacion2.config(text=f"El area es pequeña")
+        
 ventana=tk.Tk()
 ventana.title("Area del triangulo :)")
 ventana.geometry("400x300")
@@ -18,6 +23,10 @@ entrada2=tk.Entry(ventana)
 entrada2.pack()
 boton=tk.Button(ventana,text="Calcula",command=operacion)
 boton.pack()
-etiqueta_resultado = tk.Label(ventana, text="") 
+etiqueta_resultado = tk.Label(ventana, text="",bg="red") 
 etiqueta_resultado.pack()
+etiqueta_comparacion=tk.Label(ventana, text="",bg="red")
+etiqueta_comparacion.pack()
+etiqueta_comparacion2=tk.Label(ventana, text="",bg="red")
+etiqueta_comparacion2.pack()
 ventana.mainloop()
