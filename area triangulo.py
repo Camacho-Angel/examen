@@ -8,7 +8,20 @@ def operacion():
      etiqueta_comparacion.config(text=f"El area es grande")
     else:
      etiqueta_comparacion2.config(text=f"El area es pequeña")
-        
+    boton_reiniciar.pack()
+    boton_salida.pack()
+
+def reiniciar():
+    entrada.delete(0, tk.END)  
+    entrada2.delete(0, tk.END) 
+    etiqueta_resultado.config(text="")  
+    etiqueta_comparacion.config(text="")  
+    etiqueta_comparacion2.config(text="") 
+    boton_reiniciar.pack_forget()
+    
+def salida():
+    ventana.destroy()
+      
 ventana=tk.Tk()
 ventana.title("Area del triangulo :)")
 ventana.geometry("400x300")
@@ -29,4 +42,7 @@ etiqueta_comparacion=tk.Label(ventana, text="",bg="red")
 etiqueta_comparacion.pack()
 etiqueta_comparacion2=tk.Label(ventana, text="",bg="red")
 etiqueta_comparacion2.pack()
+boton_reiniciar = tk.Button(ventana, text="Reiniciar", command=reiniciar)
+boton_salida=tk.Button(ventana,text="Salida",command=salida)
+ventana.mainloop()
 ventana.mainloop()
